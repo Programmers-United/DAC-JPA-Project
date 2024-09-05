@@ -1,4 +1,16 @@
 package br.edu.ifpb.exemplosjpa.models;
 
-public class Staff {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Staff extends Person{
+    private String function;
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
+    }
 }
