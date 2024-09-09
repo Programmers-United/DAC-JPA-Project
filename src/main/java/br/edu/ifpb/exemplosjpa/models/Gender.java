@@ -15,11 +15,18 @@ public class Gender implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    private UUID id;
     private String name;
 
+    public Gender() {
+    }
+
+    public Gender(String name) {
+        this.name = name;
+    }
+
     public UUID getUuid() {
-        return uuid;
+        return id;
     }
 
     public String getName() {

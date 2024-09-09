@@ -17,7 +17,7 @@ public class Publisher implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    private UUID id;
 
     @ManyToMany(mappedBy = "publishers")
     private List<Book> books;

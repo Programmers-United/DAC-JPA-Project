@@ -1,5 +1,6 @@
 package br.edu.ifpb.exemplosjpa.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,21 +22,21 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    private UUID id;
     private String title;
     private LocalDateTime yearOfPublication;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Gender> genders;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Book> sequelBooks;
-    @ManyToMany(mappedBy = "sequelBooks")
+    @ManyToMany(mappedBy = "sequelBooks", cascade = CascadeType.PERSIST)
     private List<Book> originalBooks;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Author> authors;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Publisher> publishers;
-    @OneToMany(mappedBy = "book", orphanRemoval = true)
+    @OneToMany(mappedBy = "book", orphanRemoval = true, cascade = CascadeType.PERSIST)
     private List<Exemplary> exemplaries;
 
     public Book() {
@@ -52,8 +53,8 @@ public class Book implements Serializable {
         this.exemplaries = exemplaries;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
     public String getTitle() {
