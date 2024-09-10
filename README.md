@@ -21,7 +21,9 @@ necessárias para atrair novas pessoas e gerar um crescimento e desenvolvimento
 gradativamente alto nos serviços prestados por essa biblioteca, sem causar tais
 prejuízos ou problemas no estabelecimento em questão. 
 
-## Diagrama de Classes
+[Documentação completa](https://github.com/user-attachments/files/16938970/Trabalho.de.Banco.de.Dados.pdf)
+
+### Diagrama de Classes
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/7fe32c39-78d1-4e56-8ff3-e4bebacd43d2"/>
