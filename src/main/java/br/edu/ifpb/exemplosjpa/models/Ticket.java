@@ -9,6 +9,7 @@ import java.util.UUID;
 @Entity
 @Table(name="tickets")
 public class Ticket implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -23,23 +24,8 @@ public class Ticket implements Serializable {
     @JoinColumn(name = "reader_id", nullable = false)
     private Reader reader;
 
-    public Ticket() {
-    }
-
-    public Reader getReader() {
-        return reader;
-    }
-
-    public Delivery getDelivery() {
-        return delivery;
-    }
-
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public LocalDate getDate() {
@@ -66,10 +52,19 @@ public class Ticket implements Serializable {
         this.price = price;
     }
 
-    public void addDelivery(Delivery delivery) {
-        if (this.delivery == null) {
-            this.delivery = delivery;
-        }
+    public Delivery getDelivery() {
+        return delivery;
     }
 
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
+    }
 }

@@ -1,7 +1,6 @@
 package br.edu.ifpb.exemplosjpa.models;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -13,70 +12,76 @@ public abstract class Person {
     private UUID id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
+
     @Column(nullable = false)
     private String cpf;
+
     @Column(nullable = false)
-    private String telefone;
+    private String phone;
+
     @Column(nullable = false)
-    private LocalDate dataNascimento;
+    private LocalDate birthDate;
+
     @Column(nullable = false)
-    private String rua;
+    private String street;
+
     @Column(nullable = false)
-    private String bairro;
+    private String neighborhood;
+
     @Column(nullable = false)
-    private String cidade;
+    private String city;
 
     public Person(){}
 
-    public Person(String nome, String cpf, String telefone, LocalDate dataNascimento,  String rua, String bairro, String cidade) {
-        this.nome = nome;
+    public Person(String name, String cpf, String phone, LocalDate birthDate, String street, String neighborhood, String city) {
+        this.name = name;
         this.cpf = cpf;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
-        this.rua = rua;
-        this.bairro = bairro;
-        this.cidade = cidade;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.street = street;
+        this.neighborhood = neighborhood;
+        this.city = city;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getCity() {
+        return city;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getNeighborhood() {
+        return neighborhood;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
-    public String getRua() {
-        return rua;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getCpf() {
@@ -87,12 +92,12 @@ public abstract class Person {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public UUID getId() {

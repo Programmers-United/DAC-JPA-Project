@@ -3,10 +3,13 @@ package br.edu.ifpb.exemplosjpa.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "readers")
 public class Reader extends Person {
     @Column(nullable = false, unique = true)
     private String email;
@@ -20,11 +23,6 @@ public class Reader extends Person {
         super();
     }
 
-    public Reader(String nome, String cpf, String telefone, LocalDate dataNascimento, String rua, String bairro, String cidade, String email) {
-        super(nome, cpf, telefone, dataNascimento, rua, bairro, cidade);
-        this.email = email;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -34,18 +32,19 @@ public class Reader extends Person {
     }
 
     public List<Ticket> getTickets() {
-        return tickets;
+        return Collections.unmodifiableList(tickets);
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void addTicket(Ticket ticket) {
+        if (tickets == null) tickets = new ArrayList<>();
     }
 
     public List<Loan> getLoans() {
-        return loans;
+        return Collections.unmodifiableList(loans);
     }
 
-    public void setLoans(List<Loan> loans) {
-        this.loans = loans;
+    public void addLoan(Loan loan) {
+        if (loans == null) loans = new ArrayList<>();
+        loans.add(loan);
     }
 }

@@ -5,16 +5,18 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name="deliveries")
 public class Delivery implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private LocalDateTime dateWithTime;
+    private LocalDateTime date;
 
     @ManyToOne
     @JoinColumn(name = "staff_id", nullable = false)
@@ -23,7 +25,7 @@ public class Delivery implements Serializable {
     private List<Ticket> tickets;
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<AvailableExemplary> listExemplaryAvailable;
-    @OneToOne
+    @OneToOne(mappedBy = "delivery")
     private Loan loan;
 
     public Delivery() {
@@ -33,12 +35,12 @@ public class Delivery implements Serializable {
         return id;
     }
 
-    public LocalDateTime getDateWithTime() {
-        return dateWithTime;
+    public LocalDateTime getDate() {
+        return date;
     }
 
-    public void setDateWithTime(LocalDateTime dateWithTime) {
-        this.dateWithTime = dateWithTime;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public Staff getStaff() {
@@ -50,19 +52,21 @@ public class Delivery implements Serializable {
     }
 
     public List<Ticket> getTickets() {
-        return tickets;
+        return Collections.unmodifiableList(tickets);
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void addTicket(Ticket ticket) {
+        if (tickets == null) tickets = new ArrayList<>();
+        tickets.add(ticket);
     }
 
     public List<AvailableExemplary> getListExemplaryAvailable() {
-        return listExemplaryAvailable;
+        return Collections.unmodifiableList(listExemplaryAvailable);
     }
 
-    public void setListExemplaryAvailable(List<AvailableExemplary> listExemplaryAvailable) {
-        this.listExemplaryAvailable = listExemplaryAvailable;
+    public void addAvailableExemplary(AvailableExemplary availableExemplary) {
+        if (listExemplaryAvailable == null) listExemplaryAvailable = new ArrayList<>();
+        listExemplaryAvailable.add(availableExemplary);
     }
 
     public Loan getLoan() {
