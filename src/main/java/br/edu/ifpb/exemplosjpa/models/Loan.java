@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +19,7 @@ public class Loan implements Serializable {
     private LocalDate date;
     private LocalDate expectedDate;
 
-    @OneToOne(mappedBy = "loan", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @OneToOne(orphanRemoval = true, cascade = CascadeType.PERSIST)
     private Delivery delivery;
     @ManyToOne
     @JoinColumn(name = "reader_id", nullable = false)
@@ -24,6 +27,8 @@ public class Loan implements Serializable {
     @ManyToOne
     @JoinColumn(name = "staff_id", nullable = false)
     private Staff staff;
+    @ManyToMany(mappedBy = "loans")
+    private List<AvailableExemplary> availableExemplaries;
 
     public UUID getId() {
         return id;
@@ -67,5 +72,14 @@ public class Loan implements Serializable {
 
     public void setStaff(Staff staff) {
         this.staff = staff;
+    }
+
+    public List<AvailableExemplary> getAvailableExemplaries() {
+        return Collections.unmodifiableList(availableExemplaries);
+    }
+
+    public void addAvailableExemplary(AvailableExemplary availableExemplary) {
+        if (availableExemplaries == null) availableExemplaries = new ArrayList<>();
+        availableExemplaries.add(availableExemplary);
     }
 }

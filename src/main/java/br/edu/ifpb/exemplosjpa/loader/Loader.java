@@ -1,5 +1,6 @@
 package br.edu.ifpb.exemplosjpa.loader;
 
+import br.edu.ifpb.exemplosjpa.models.Staff;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.slf4j.Logger;
@@ -23,7 +24,6 @@ public class Loader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        // Coloque o seu código aqui
     }
 
 }

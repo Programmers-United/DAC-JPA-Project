@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,16 +27,32 @@ public class Publisher implements Serializable {
     @ManyToMany(mappedBy = "publishers")
     private List<Book> books;
 
+    public UUID getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
-    public String getNationality() {
-        return nationality;
-    }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getNationality() {
+        return nationality;
+    }
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public List<Book> getBooks() {
+        return Collections.unmodifiableList(books);
+    }
+
+    public void addBook(Book book) {
+        if (book == null) books = new ArrayList<>();
+        books.add(book);
     }
 }

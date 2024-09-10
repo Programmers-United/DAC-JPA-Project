@@ -3,15 +3,15 @@ package br.edu.ifpb.exemplosjpa.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "exemplary_available")
 public class AvailableExemplary extends Exemplary{
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+
     @Column
     private LocalDate acquisitionDate;
     @Column
@@ -20,14 +20,11 @@ public class AvailableExemplary extends Exemplary{
     private String status;
     @ManyToMany(mappedBy = "listExemplaryAvailable")
     private List<Delivery> deliveries;
+    @ManyToMany
+    private List<Loan> loans;
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
+    public AvailableExemplary() {
+        super();
     }
 
     public LocalDate getAcquisitionDate() {
@@ -55,11 +52,20 @@ public class AvailableExemplary extends Exemplary{
     }
 
     public List<Delivery> getDeliveries() {
-        return deliveries;
+        return Collections.unmodifiableList(deliveries);
     }
 
-    public void setDeliveries(List<Delivery> deliveries) {
-        this.deliveries = deliveries;
+    public void addDelivery(Delivery delivery) {
+        if (deliveries == null) deliveries = new ArrayList<>();
+        deliveries.add(delivery);
     }
 
+    public List<Loan> getLoans() {
+        return Collections.unmodifiableList(loans);
+    }
+
+    public void addLoan(Loan loan) {
+        if (loans == null) loans = new ArrayList<>();
+        loans.add(loan);
+    }
 }
