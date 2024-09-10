@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center" id="titulo">Sistema de Gerênciamento de Biblioteca</h1>
+  <h1 align="center" id="titulo">Sistema de Gerênciamento para Biblioteca</h1>
 </div>
 
 ## Sobre
