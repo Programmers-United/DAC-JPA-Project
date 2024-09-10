@@ -29,16 +29,8 @@ public class Delivery implements Serializable {
     public Delivery() {
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public LocalDateTime getDateWithTime() {
@@ -49,31 +41,35 @@ public class Delivery implements Serializable {
         this.dateWithTime = dateWithTime;
     }
 
-    public Loan getLoan() {
-        return loan;
-    }
-
-
     public Staff getStaff() {
         return staff;
     }
 
-    public void addStaff(Staff staff) {
-        if(this.staff == null) {
-            this.staff = staff;
-        }
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
-    public void addTicket(Ticket ticket) {
-        if(this.tickets == null) {
-            this.tickets = new ArrayList<>();
-        }
-        this.tickets.add(ticket);
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
-    public void addLoan(Loan loan) {
-        if(this.loan == null) {
-            this.loan = loan;
-        }
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public List<AvailableExemplary> getListExemplaryAvailable() {
+        return listExemplaryAvailable;
+    }
+
+    public void setListExemplaryAvailable(List<AvailableExemplary> listExemplaryAvailable) {
+        this.listExemplaryAvailable = listExemplaryAvailable;
+    }
+
+    public Loan getLoan() {
+        return loan;
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
     }
 }
