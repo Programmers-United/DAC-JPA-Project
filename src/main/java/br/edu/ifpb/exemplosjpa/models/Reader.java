@@ -13,6 +13,8 @@ public class Reader extends Person {
 
     @OneToMany(mappedBy = "reader", orphanRemoval = true, cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
+    @OneToMany(mappedBy = "reader", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Loan> loans;
 
     public Reader() {
         super();

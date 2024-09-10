@@ -15,6 +15,8 @@ public class Staff extends Person{
 
     @OneToMany(mappedBy = "staff",cascade = CascadeType.PERSIST)
     private List<Delivery> deliveries;
+    @OneToMany(mappedBy = "staff", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Loan> staff;
 
     public Staff() {
         super();

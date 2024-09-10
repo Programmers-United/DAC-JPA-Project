@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name="deliverys")
+@Table(name="deliveries")
 public class Delivery implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -22,7 +22,7 @@ public class Delivery implements Serializable {
     @OneToMany(mappedBy = "delivery", orphanRemoval = true, cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
     @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<AvailableExemplary> listAvailableExemplary;
+    private List<AvailableExemplary> listExemplaryAvailable;
     @OneToOne
     private Loan loan;
 
@@ -53,9 +53,6 @@ public class Delivery implements Serializable {
         return loan;
     }
 
-    public List<AvailableExemplary> getListExemplaryAvailable() {
-        return listAvailableExemplary;
-    }
 
     public Staff getStaff() {
         return staff;
@@ -72,13 +69,6 @@ public class Delivery implements Serializable {
             this.tickets = new ArrayList<>();
         }
         this.tickets.add(ticket);
-    }
-
-    public void addExemplaryAvailable(AvailableExemplary availableExemplary) {
-        if (this.listAvailableExemplary == null) {
-            this.listAvailableExemplary = new ArrayList<>();
-        }
-        this.listAvailableExemplary.add(availableExemplary);
     }
 
     public void addLoan(Loan loan) {
