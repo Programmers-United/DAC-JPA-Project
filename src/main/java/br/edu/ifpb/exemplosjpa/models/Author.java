@@ -18,7 +18,29 @@ public class Author implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private String name;
+    public String sex;
+    private String nationality;
 
     @ManyToMany(mappedBy = "authors")
     private List<Book> books;
+
+    public String getName() {
+        return name;
+    }
+    public String getSex() {
+        return sex;
+    }
+    public String getNationality() {
+        return nationality;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
 }
