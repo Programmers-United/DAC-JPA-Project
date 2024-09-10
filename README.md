@@ -26,8 +26,16 @@ prejuízos ou problemas no estabelecimento em questão.
 ### Diagrama de Classes
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/7fe32c39-78d1-4e56-8ff3-e4bebacd43d2"/>
+  <img src="https://github.com/user-attachments/assets/cc7b38f3-24d4-4383-864e-3f69b8eddd01"/>
 </div>
+
+### Tecnologias usadas
+  
+  ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+  ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+  ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+  ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
+  ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## Executando
 
@@ -46,6 +54,14 @@ docker compose up
 ```
 
 ## Resolução de problemas
+
 - Pode ser que o comando do docker seja `docker-compose` (com hífen) na sua máquina. Faça o ajuste de acordo;
 - Pode ser que você tenha o PostgreSQL instalado na sua máquina. Se for esse o caso, altere o arquivo `docker-compose.yml`, substituindo o mapeamento da porta na linha 11 por outra porta além da `5432`. Exemplo utilizando a porta 5433: `5433:5432`. No caso de alterar essa porta, altere a URL de conexão no arquivo `application.properties`;
 - Em caso do erro "No compiler is provided in this environment" ao executar os comandos `mvnw`, verifique se a variável JAVA_HOME está definida no seu ambiente. Caso não esteja, siga [esse tutorial](https://www.baeldung.com/java-home-on-windows-mac-os-x-linux)
+
+## Autores
+- João Darwin
+- Douglas Silva
+- José Gabriel
+- Marcos Paulo
+- João Pedro
