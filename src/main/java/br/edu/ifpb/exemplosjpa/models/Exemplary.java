@@ -1,18 +1,13 @@
 package br.edu.ifpb.exemplosjpa.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "exemplaries")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Exemplary implements Serializable {
 
     @Id

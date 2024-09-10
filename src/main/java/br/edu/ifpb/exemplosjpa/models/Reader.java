@@ -3,12 +3,16 @@ package br.edu.ifpb.exemplosjpa.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 public class Reader extends Person {
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "reader", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Ticket> tickets;
 
     public Reader() {
         super();
