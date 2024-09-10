@@ -14,6 +14,9 @@ public class Exemplary implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column
+    private String type;
+
     @ManyToOne
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
@@ -34,5 +37,13 @@ public class Exemplary implements Serializable {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
