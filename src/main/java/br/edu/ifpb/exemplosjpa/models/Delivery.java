@@ -22,7 +22,7 @@ public class Delivery implements Serializable {
     @OneToMany(mappedBy = "delivery", orphanRemoval = true, cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
     @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<ExemplaryAvailable> listExemplaryAvailable;
+    private List<AvailableExemplary> listAvailableExemplary;
     @OneToOne
     private Loan loan;
 
@@ -53,8 +53,8 @@ public class Delivery implements Serializable {
         return loan;
     }
 
-    public List<ExemplaryAvailable> getListExemplaryAvailable() {
-        return listExemplaryAvailable;
+    public List<AvailableExemplary> getListExemplaryAvailable() {
+        return listAvailableExemplary;
     }
 
     public Staff getStaff() {
@@ -74,11 +74,11 @@ public class Delivery implements Serializable {
         this.tickets.add(ticket);
     }
 
-    public void addExemplaryAvailable(ExemplaryAvailable exemplaryAvailable) {
-        if (this.listExemplaryAvailable == null) {
-            this.listExemplaryAvailable = new ArrayList<>();
+    public void addExemplaryAvailable(AvailableExemplary availableExemplary) {
+        if (this.listAvailableExemplary == null) {
+            this.listAvailableExemplary = new ArrayList<>();
         }
-        this.listExemplaryAvailable.add(exemplaryAvailable);
+        this.listAvailableExemplary.add(availableExemplary);
     }
 
     public void addLoan(Loan loan) {
