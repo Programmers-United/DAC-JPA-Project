@@ -23,6 +23,12 @@ prejuízos ou problemas no estabelecimento em questão.
 
 [Documentação completa](https://github.com/user-attachments/files/16938970/Trabalho.de.Banco.de.Dados.pdf)
 
+### Diagrama Entidade Relacionamento
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/043fb04b-bfaa-42c6-a787-05047543a958"/>
+</div>
+
 ### Diagrama de Classes
 
 <div align="center">
