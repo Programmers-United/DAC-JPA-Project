@@ -32,7 +32,7 @@ prejuízos ou problemas no estabelecimento em questão.
 ### Diagrama de Classes
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/cc7b38f3-24d4-4383-864e-3f69b8eddd01"/>
+  <img src="https://github.com/user-attachments/assets/36af32ff-a3cf-42b6-8b56-1ecf3da4f4c4"/>
 </div>
 
 ### Tecnologias usadas
